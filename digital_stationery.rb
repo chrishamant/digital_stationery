@@ -4,13 +4,13 @@ require 'tempfile'
 require 'rubygems'
 require 'escape'
 
-class PDFStationaryStamper
-  attr_accessor :document_title, :job_details, :source_pdf, :stationary_pdf, :temp_directory, :pdftk_exec
+class PDFStationeryStamper
+  attr_accessor :document_title, :job_details, :source_pdf, :stationery_pdf, :temp_directory, :pdftk_exec
 
   def initialize(data = nil)
     return unless data
     
-    @stationary_pdf = data[:stationary]
+    @stationery_pdf = data[:stationery]
     @document_title = data[:input][0]
     @job_details    = data[:input][1]
     @source_pdf     = data[:input][2]
@@ -24,7 +24,7 @@ class PDFStationaryStamper
     tmpfile = ::Tempfile.new(@document_title, @temp_directory) # name generation only...
     filename = tmpfile.path + '.pdf'
     
-    %x{#{Escape.shell_command([ @pdftk_exec, @stationary_pdf, 'background', @source_pdf , 'output', filename])}}
+    %x{#{Escape.shell_command([ @pdftk_exec, @stationery_pdf, 'background', @source_pdf , 'output', filename])}}
     
     Thread.abort_on_exception = true
     t1 = Thread.new do
@@ -34,5 +34,5 @@ class PDFStationaryStamper
 end
 
 
-fs = PDFStationaryStamper.new(:input => ARGV, :stationary => '/Users/rmoriz/stationary.pdf')
+fs = PDFStationeryStamper.new(:input => ARGV, :stationery => '/Users/rmoriz/stationery.pdf')
 fs.stamp!

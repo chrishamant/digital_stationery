@@ -1,13 +1,13 @@
-Digital Stationary for OSX
+Digital Stationery for OSX
 ===========================
 
 Extending the OSX PDF Services and pdftk with ruby to print on your 
-awesome faaancy hot corporate digital pdf stationary.
+awesome faaancy hot corporate digital pdf stationery.
 
 CONFIG
 -------------
 
-open digital_stationary.rb and customize:
+open digital_stationery.rb and customize:
 
   1. path of your ruby interpreter
      make sure you have installed the 'escape' rubygem
@@ -20,23 +20,23 @@ open digital_stationary.rb and customize:
       - get a prebuild binary package from
         http://fredericiana.com/2010/03/01/pdftk-1-41-for-mac-os-x-10-6/
        
-  3. path of your pdf stationary/template
+  3. path of your pdf stationery/template
 
 
 INSTALL
 -------------
 
-cp digital_stationary.rb ~/Library/PDF\ Services/Digital\ Stationary
+cp digital_stationery.rb ~/Library/PDF\ Services/Digital\ Stationery
   NOTE: filename appears 1:1 in the print dialog. choose what you like.
   
-chmod 755 ~/Library/PDF\ Services/Digital\ Stationary
+chmod 755 ~/Library/PDF\ Services/Digital\ Stationery
 
 
 USE
 -------------
 
 Every app that's using the native osx print dialog offers you a PDF button:
-Just click and select "Digital Stationary" (or the filename you've choosen).
+Just click and select "Digital Stationery" (or the filename you've choosen).
 After pdf stamping the Preview.app opens the final result. You can either
 print it on your physical printer or save it as PDF (again).
 
@@ -46,8 +46,4 @@ Version 1.0
 
 (C) 2010 Roland Moriz, Moriz GmbH, http://www.moriz.de/
     licensed as "Commentware" — Do what you like.
-
-
-
-
 
