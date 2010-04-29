@@ -21,10 +21,10 @@ class PDFStationeryStamper
   end
   
   def stamp!
-    tmpfile = ::Tempfile.new(@document_title, @temp_directory) # name generation only...
+    tmpfile = ::Tempfile.new('digital_stationery_tmp', @temp_directory) # name generation only
     filename = tmpfile.path + '.pdf'
     
-    %x{#{Escape.shell_command([ @pdftk_exec, @stationery_pdf, 'background', @source_pdf , 'output', filename])}}
+    %x{#{Escape.shell_command([@pdftk_exec, @stationery_pdf, 'background', @source_pdf , 'output', filename])}}
     
     Thread.abort_on_exception = true
     t1 = Thread.new do
